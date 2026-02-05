@@ -562,6 +562,149 @@
             background: rgba(61, 35, 20, 0.3);
         }
 
+        /* Reviews Section */
+        .reviews {
+            background: var(--color-warm-cream);
+            padding: 6rem 2rem;
+        }
+
+        .reviews-slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 0 40px;
+        }
+
+        .reviews-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 2rem;
+        }
+
+        .review-card {
+            flex: 0 0 calc(33.333% - 1.33rem);
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid var(--color-accent);
+        }
+
+        .review-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .review-name {
+            font-size: 1.1rem;
+            color: var(--color-dark-brown);
+            margin-bottom: 0.25rem;
+        }
+
+        .review-rating {
+            color: var(--color-gold);
+            font-size: 1rem;
+        }
+
+        .review-rating .star.empty {
+            opacity: 0.3;
+        }
+
+        .review-text {
+            color: var(--color-light-brown);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-date {
+            color: var(--color-accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-dark-brown);
+            color: var(--color-cream);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition-smooth);
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: var(--color-accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn-prev {
+            left: 0;
+        }
+
+        .slider-btn-next {
+            right: 0;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-light-brown);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            opacity: 0.5;
+        }
+
+        .slider-dot:hover {
+            opacity: 0.8;
+        }
+
+        .slider-dot.active {
+            background: var(--color-accent);
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
         /* Contact Section */
         .contact {
             background: var(--color-dark-brown);
@@ -765,6 +908,10 @@
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .review-card {
+                flex: 0 0 calc(50% - 1rem);
+            }
         }
 
         @media (max-width: 768px) {
@@ -826,6 +973,14 @@
             .gallery-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .review-card {
+                flex: 0 0 100%;
+            }
+
+            .reviews-slider-container {
+                padding: 0 60px;
+            }
         }
 
         /* Scroll Reveal Animation */
@@ -852,6 +1007,7 @@
                 <li><a href="#home" class="nav-link">Главная</a></li>
                 <li><a href="#about" class="nav-link">О нас</a></li>
                 <li><a href="#menu" class="nav-link">Меню</a></li>
+                <li><a href="#reviews" class="nav-link">Отзывы</a></li>
                 <li><a href="#contact" class="nav-link">Контакты</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -1042,6 +1198,182 @@
         </div>
     </section>
 
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-tag">Что говорят гости</span>
+                <h2 class="section-title">Отзывы наших клиентов</h2>
+                <p class="section-subtitle">
+                    Нам важно ваше мнение — читайте, что говорят о нас наши гости
+                </p>
+            </div>
+            
+            <div class="reviews-slider-container">
+                <button class="slider-btn slider-btn-prev" aria-label="Предыдущий отзыв">
+                    <span>&#10094;</span>
+                </button>
+                
+                <div class="reviews-slider">
+                    <div class="review-card reveal">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Анна Петрова">
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Анна Петрова</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            Лучшая кофейня в районе! Карамельный Раф — просто невероятный. Атмосфера уютная, персонал дружелюбный. Прихожу сюда каждое утро уже полгода.
+                        </p>
+                        <div class="review-footer">
+                            <span class="review-date">15 января 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card reveal">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Дмитрий Иванов">
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Дмитрий Иванов</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            Отличное место для работы с ноутбуком. Быстрый Wi-Fi, вкусный кофе и тишина. Пончики — это отдельная любовь, особенно с шоколадной глазурью!
+                        </p>
+                        <div class="review-footer">
+                            <span class="review-date">10 января 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card reveal">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Елена Смирнова">
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Елена Смирнова</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star empty">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            Очень уютная кофейня с потрясающим интерьером. Кофе всегда на высоте, но иногда бывает очередь. Рекомендую приходить утром!
+                        </p>
+                        <div class="review-footer">
+                            <span class="review-date">5 января 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card reveal">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Максим Козлов">
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Максим Козлов</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            Флэт Уайт здесь — лучший в городе! Бариста настоящие профессионалы, знают своё дело. Цены адекватные, качество на высоте.
+                        </p>
+                        <div class="review-footer">
+                            <span class="review-date">28 декабря 2024</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card reveal">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Ольга Волкова">
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Ольга Волкова</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            Идеальное место для встреч с друзьями. Мокко Бельгийский — это просто восторг! Спасибо за тёплую атмосферу и отличный сервис.
+                        </p>
+                        <div class="review-footer">
+                            <span class="review-date">20 декабря 2024</span>
+                        </div>
+                    </div>
+
+                    <div class="review-card reveal">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Алексей Новиков">
+                            </div>
+                            <div class="review-info">
+                                <h4 class="review-name">Алексей Новиков</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star empty">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            Хорошая кофейня с приятной атмосферой. Пончики свежие, кофе вкусный. Единственное — хотелось бы больше мест для сидения.
+                        </p>
+                        <div class="review-footer">
+                            <span class="review-date">15 декабря 2024</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="slider-btn slider-btn-next" aria-label="Следующий отзыв">
+                    <span>&#10095;</span>
+                </button>
+            </div>
+            
+            <div class="slider-dots">
+                <span class="slider-dot active" data-index="0"></span>
+                <span class="slider-dot" data-index="1"></span>
+                <span class="slider-dot" data-index="2"></span>
+                <span class="slider-dot" data-index="3"></span>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="section-container">
@@ -1099,6 +1431,7 @@
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#about">О нас</a></li>
                 <li><a href="#menu">Меню</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
             <div class="footer-social">
@@ -1170,6 +1503,170 @@
                 }
             });
         });
+
+        // Reviews Slider
+        const reviewsSlider = {
+            container: document.querySelector('.reviews-slider'),
+            cards: document.querySelectorAll('.review-card'),
+            prevBtn: document.querySelector('.slider-btn-prev'),
+            nextBtn: document.querySelector('.slider-btn-next'),
+            dotsContainer: document.querySelector('.slider-dots'),
+            dots: document.querySelectorAll('.slider-dot'),
+            currentIndex: 0,
+            cardsPerView: 3,
+            autoPlayInterval: null,
+            autoPlayDelay: 5000,
+            isDragging: false,
+            startPos: 0,
+            currentTranslate: 0,
+            prevTranslate: 0
+        };
+
+        // Определение количества карточек на экране
+        function updateCardsPerView() {
+            if (window.innerWidth < 768) {
+                reviewsSlider.cardsPerView = 1;
+            } else if (window.innerWidth < 968) {
+                reviewsSlider.cardsPerView = 2;
+            } else {
+                reviewsSlider.cardsPerView = 3;
+            }
+            updateSlider();
+        }
+
+        // Функция обновления позиции слайдера
+        function updateSlider() {
+            const cardWidth = reviewsSlider.cards[0].offsetWidth;
+            const gap = 32; // 2rem в пикселях
+            const translateX = -(reviewsSlider.currentIndex * (cardWidth + gap));
+            reviewsSlider.container.style.transform = `translateX(${translateX}px)`;
+            updateDots();
+        }
+
+        // Функция перехода к следующему слайду
+        function nextSlide() {
+            const maxIndex = reviewsSlider.cards.length - reviewsSlider.cardsPerView;
+            reviewsSlider.currentIndex = (reviewsSlider.currentIndex + 1) % (maxIndex + 1);
+            updateSlider();
+        }
+
+        // Функция перехода к предыдущему слайду
+        function prevSlide() {
+            const maxIndex = reviewsSlider.cards.length - reviewsSlider.cardsPerView;
+            reviewsSlider.currentIndex = reviewsSlider.currentIndex === 0 
+                ? maxIndex 
+                : reviewsSlider.currentIndex - 1;
+            updateSlider();
+        }
+
+        // Функция перехода к конкретному слайду
+        function goToSlide(index) {
+            reviewsSlider.currentIndex = index;
+            updateSlider();
+        }
+
+        // Функция обновления точек навигации
+        function updateDots() {
+            const maxIndex = reviewsSlider.cards.length - reviewsSlider.cardsPerView;
+            const totalDots = maxIndex + 1;
+            
+            // Обновляем количество точек при необходимости
+            if (reviewsSlider.dots.length !== totalDots) {
+                reviewsSlider.dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = 'slider-dot';
+                    dot.dataset.index = i;
+                    dot.addEventListener('click', () => goToSlide(i));
+                    reviewsSlider.dotsContainer.appendChild(dot);
+                }
+                reviewsSlider.dots = document.querySelectorAll('.slider-dot');
+            }
+            
+            reviewsSlider.dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === reviewsSlider.currentIndex);
+            });
+        }
+
+        // Функция запуска автопрокрутки
+        function startAutoPlay() {
+            reviewsSlider.autoPlayInterval = setInterval(nextSlide, reviewsSlider.autoPlayDelay);
+        }
+
+        // Функция остановки автопрокрутки
+        function stopAutoPlay() {
+            clearInterval(reviewsSlider.autoPlayInterval);
+        }
+
+        // Инициализация слайдера
+        function initReviewsSlider() {
+            if (!reviewsSlider.container) return;
+            
+            updateCardsPerView();
+            
+            // Обработчики кнопок
+            reviewsSlider.prevBtn.addEventListener('click', () => {
+                stopAutoPlay();
+                prevSlide();
+                startAutoPlay();
+            });
+            
+            reviewsSlider.nextBtn.addEventListener('click', () => {
+                stopAutoPlay();
+                nextSlide();
+                startAutoPlay();
+            });
+            
+            // Обработчики точек навигации
+            reviewsSlider.dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    stopAutoPlay();
+                    goToSlide(parseInt(dot.dataset.index));
+                    startAutoPlay();
+                });
+            });
+            
+            // Touch-свайп поддержка
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            reviewsSlider.container.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                stopAutoPlay();
+            }, { passive: true });
+            
+            reviewsSlider.container.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                startAutoPlay();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }
+            
+            // Пауза при наведении мыши
+            reviewsSlider.container.addEventListener('mouseenter', stopAutoPlay);
+            reviewsSlider.container.addEventListener('mouseleave', startAutoPlay);
+            
+            // Обновление при изменении размера окна
+            window.addEventListener('resize', updateCardsPerView);
+            
+            // Запуск автопрокрутки
+            startAutoPlay();
+        }
+
+        // Инициализация после загрузки страницы
+        document.addEventListener('DOMContentLoaded', initReviewsSlider);
     </script>
 </body>
 </html>
